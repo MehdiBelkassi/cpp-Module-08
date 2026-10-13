@@ -1,9 +1,9 @@
 NAME = Span
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-HPP = easyfind.hpp easyfind.tpp 
+HPP = Span.hpp
 
 all: $(NAME)
 
