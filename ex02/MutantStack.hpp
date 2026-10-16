@@ -27,3 +27,4 @@ public:
 
 };
 
+#include "MutantStack.tpp"

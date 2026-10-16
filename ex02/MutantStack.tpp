@@ -24,3 +24,24 @@ typename MutantStack<T>::const_iterator MutantStack<T>::end() const
 {
     return this->c.end();
 }
+
+MutantStack::MutantStack()
+{
+    std::cout << "MutantStack Default constructor called\n";
+}
+
+MutantStack::MutantStack(const MutantStack& other)
+{
+    std::cout << "MutantStack copy constructor called\n";
+}
+
+MutantStack& MutantStack::operator=(const MutantStack& other)
+{
+    std::cout << "MutantStack copy assigment operator called\n";
+    return (*this);
+}
+
+MutantStack::~MutantStack()
+{
+    std::cout << "MutantStack destructor called\n";
+}
