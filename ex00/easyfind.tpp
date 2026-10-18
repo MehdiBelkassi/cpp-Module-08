@@ -2,18 +2,14 @@
 
 
 template <typename T>
-void easyfind(T &content, int x)
+typename T::iterator easyfind(T& content, int x)
 {
-    typename T::iterator it = content.begin();
+    typename T::iterator it;
 
-    while (it != content.end())
-    {
-        if (*it == x)
-        {
-            std::cout<< "Found\n";
-            return;
-        }
-        ++it;
-    }
-    std::cout<< "Not Found\n";
+    it = std::find(content.begin(), content.end(), x);
+
+    if (it == content.end())
+        throw std::runtime_error("Value not found");
+
+    return it;
 }

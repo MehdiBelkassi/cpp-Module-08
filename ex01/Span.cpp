@@ -1,17 +1,16 @@
 #include "Span.hpp"
 
-Span::Span()
+Span::Span():N(0)
 {
     std::cout << "Span Default constructor called\n";
 }
-
 
 Span::Span(unsigned int N): N(N)
 {
     std::cout << "Span constructor called\n";
 }
 
-Span::Span(const Span &other): N(other.N) //to check
+Span::Span(const Span &other):N(other.N), numbers(other.numbers)
 {
     std::cout << "Span copy constructor called\n";
 }
@@ -20,8 +19,11 @@ Span& Span::operator=(const Span &other)
 {
     std::cout << "Span copy assigment operator called\n";
     if (this != &other)
+    {
         N = other.N;
-    return (*this);
+        numbers = other.numbers;
+    }
+    return *this;
 }
 
 void Span::addNumber(int number)
@@ -56,7 +58,7 @@ int Span::longestSpan()
     if (numbers.size() < 2)
         throw std::exception();
 
-    std::vector<int>::iterator min = std::min_element(numbers.begin(), numbers.end()); //auto ?
+    std::vector<int>::iterator min = std::min_element(numbers.begin(), numbers.end());
     std::vector<int>::iterator max = std::max_element(numbers.begin(), numbers.end());
 
     return (*max - *min);

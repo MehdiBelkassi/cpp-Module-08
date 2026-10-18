@@ -1,6 +1,3 @@
-#include "MutantStack.hpp"
-
-
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
@@ -25,23 +22,29 @@ typename MutantStack<T>::const_iterator MutantStack<T>::end() const
     return this->c.end();
 }
 
-MutantStack::MutantStack()
+
+template <typename T>
+MutantStack<T>::MutantStack() : std::stack<T>()
 {
-    std::cout << "MutantStack Default constructor called\n";
 }
 
-MutantStack::MutantStack(const MutantStack& other)
+
+template <typename T>
+MutantStack<T>::MutantStack(const MutantStack<T>& other):std::stack<T>(other)
 {
-    std::cout << "MutantStack copy constructor called\n";
 }
 
-MutantStack& MutantStack::operator=(const MutantStack& other)
+
+template <typename T>
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack<T>& other)
 {
-    std::cout << "MutantStack copy assigment operator called\n";
-    return (*this);
+    if (this != &other)
+        std::stack<T>::operator=(other);
+    return *this;
 }
 
-MutantStack::~MutantStack()
+
+template <typename T>
+MutantStack<T>::~MutantStack()
 {
-    std::cout << "MutantStack destructor called\n";
 }
